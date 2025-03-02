@@ -12,7 +12,7 @@ versions =
 
 gem 'github-pages', versions['github-pages']
 
-gem "rake", "~> 10.0"
+gem "rake", "~> 13.0"
 gem "rb-fsevent", "~> 0.9"
 gem "compass", "~> 1.0"
 gem "sass", "~> 3.4"
