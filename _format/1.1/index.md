@@ -49,7 +49,7 @@ The JSON:API specification supports two media type parameters: `ext` and
 
 > Note: A media type parameter is an extra piece of information that can
 accompany a media type. For example, in the header
-`Content-Type: text/html; charset="utf-8"`, the media type is `text/html` and
+`Content-Type: text/html;charset="utf-8"`, the media type is `text/html` and
 `charset` is a parameter.
 
 ### <a href="#extensions" id="extensions" class="headerlink"></a> Extensions
@@ -120,7 +120,7 @@ versioning. This member might appear as follows:
 
 ```json
 HTTP/1.1 200 OK
-Content-Type: application/vnd.api+json; ext="https://jsonapi.org/ext/version"
+Content-Type: application/vnd.api+json;ext="https://jsonapi.org/ext/version"
 
 // ...
 {
@@ -169,7 +169,7 @@ With such a profile applied, a response might appear as follows:
 
 ```json
 HTTP/1.1 200 OK
-Content-Type: application/vnd.api+json; profile="https://example.com/resource-timestamps"
+Content-Type: application/vnd.api+json;profile="https://example.com/resource-timestamps"
 
 // ...
 {
@@ -302,7 +302,7 @@ The members `data` and `errors` **MUST NOT** coexist in the same document.
 A document **MAY** contain any of these top-level members:
 
 * `jsonapi`: an object describing the server's implementation.
-* `links`: a [links object][links] related to the primary data.
+* `links`: a [links object][links] related to the document as a whole.
 * `included`: an array of [resource objects] that are related to the primary
   data and/or each other ("included resources").
 
@@ -2155,10 +2155,10 @@ least one of:
 * `id`: a unique identifier for this particular occurrence of the problem.
 * `links`: a [links object][links] that **MAY** contain the following members:
   * `about`: a [link][link] that leads to further details about this
-    particular occurrence of the problem. When derefenced, this URI **SHOULD**
+    particular occurrence of the problem. When dereferenced, this URI **SHOULD**
     return a human-readable description of the error.
   * `type`: a [link][link] that identifies the type of error that this
-    particular error is an instance of. This URI **SHOULD** be dereferencable to
+    particular error is an instance of. This URI **SHOULD** be dereferenceable to
     a human-readable explanation of the general error.
 * `status`: the HTTP status code applicable to this problem, expressed as a
   string value.  This **SHOULD** be provided.
@@ -2210,7 +2210,7 @@ parsing algorithm. The resulting value might not be a string.
 > as delimiters. These issues motivate the exception that JSON:API defines above.
 
 Similarly, to serialize a query parameter into a URI, an implementation **MUST**
-use the [the `application/x-www-form-urlencoded` serializer](https://url.spec.whatwg.org/#concept-urlencoded-serializer),
+use [the `application/x-www-form-urlencoded` serializer](https://url.spec.whatwg.org/#concept-urlencoded-serializer),
 with the corresponding exception that a parameter's value — but not its name —
 may be serialized differently than that algorithm requires, provided the
 serialization does not interfere with the ability to parse back the resulting URI.
@@ -2247,7 +2247,12 @@ request as equivalent to one in which the square brackets were percent-encoded.
 [profiles]: #profiles
 [error details]: #errors
 [error object]: #error-objects
-[error objects]: #errror-objects
+[error objects]: #error-objects
 [member names]: #document-member-names
 [pagination]: #fetching-pagination
 [query parameter family]: #query-parameters-families
+[fetching filtering]: #fetching-filtering
+[fetching pagination]: #fetching-pagination
+[fetching resources]: #fetching-resources
+[fetching sorting]: #fetching-sorting
+[fetching sparse fieldsets]: #fetching-sparse-fieldsets

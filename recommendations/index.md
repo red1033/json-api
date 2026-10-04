@@ -234,7 +234,7 @@ GET /photos/jobs/5234 HTTP/1.1
 Accept: application/vnd.api+json
 ```
 
-Requests for still-pending jobs **SHOULD** return a status `200 OK`, as the server is reporting the status successfully. Optionally, the server can return a `Retry-After` header to provide guidance to the client as to how long it should wait before checking again. Recommendations to retry sooner than 1 second can be accomplised with `Retry-After: 0`.
+Requests for still-pending jobs **SHOULD** return a status `200 OK`, as the server is reporting the status successfully. Optionally, the server can return a `Retry-After` header to provide guidance to the client as to how long it should wait before checking again. Recommendations to retry sooner than 1 second can be accomplished with `Retry-After: 0`.
 
 ```http
 HTTP/1.1 200 OK
